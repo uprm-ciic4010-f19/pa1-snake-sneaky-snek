@@ -42,11 +42,11 @@ public class Player {
         
         
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) { // BETA JSR
-        	direction = "addTail";
+        	Eat();
     	}
         
      
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ //check if it is backtracking?????????? :v WITH && and false
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ 
             direction="Up";
         }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && direction != "Up"){
             direction="Down";
