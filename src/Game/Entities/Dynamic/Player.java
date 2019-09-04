@@ -29,7 +29,7 @@ public class Player {
         moveCounter = 0;
         direction= "Right";
         justAte = false;
-        lenght= 1;
+        lenght= 10;
 
     }
 
@@ -37,18 +37,25 @@ public class Player {
         moveCounter++;
         if(moveCounter>=5) {
             checkCollisionAndMove();
-            moveCounter=0;
+            moveCounter=0;   
         }
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
+        
+        
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) { // BETA JSR
+        	direction = "addTail";
+    	}
+        
+     
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ //check if it is backtracking?????????? :v WITH && and false
             direction="Up";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN)){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && direction != "Up"){
             direction="Down";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT)){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && direction != "Right"){
             direction="Left";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)&& direction != "Left"){
             direction="Right";
         }
-
+        
     }
 
     public void checkCollisionAndMove(){
@@ -222,9 +229,35 @@ public class Player {
 
                 }
                 break;
+            case "addTail":
+                if( handler.getWorld().body.isEmpty()){
+                    if(this.yCoord!=0){
+                        tail=(new Tail(this.xCoord,this.yCoord-1,handler));
+                    }else{
+                        if(this.xCoord!=0){
+                            tail=(new Tail(this.xCoord-1,this.yCoord,handler));
+                        }else{
+                            tail=(new Tail(this.xCoord+1,this.yCoord,handler));
+                        } System.out.println("Tu biscochito");
+                    }
+                }else{
+                    if(handler.getWorld().body.getLast().y!=0){
+                        tail=(new Tail(handler.getWorld().body.getLast().x,this.yCoord-1,handler));
+                    }else{
+                        if(handler.getWorld().body.getLast().x!=0){
+                            tail=(new Tail(handler.getWorld().body.getLast().x-1,this.yCoord,handler));
+                        }else{
+                            tail=(new Tail(handler.getWorld().body.getLast().x+1,this.yCoord,handler));
+                        }
+                    }
+
+                }
+               
+                
         }
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
+        
     }
 
     public void kill(){
