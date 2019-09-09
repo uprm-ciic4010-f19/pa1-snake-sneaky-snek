@@ -82,7 +82,7 @@ public class GameSetUp implements Runnable {
         menuState = new MenuState(handler);
         pauseState = new PauseState(handler);
 
-        State.setState(menuState);
+        State.setState(gameState);
 
         try {
 

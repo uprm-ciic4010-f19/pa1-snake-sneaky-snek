@@ -14,6 +14,8 @@ public class KeyManager implements KeyListener {
 	public boolean up=false, down=false, left=false, right=false;
 	public boolean pbutt=false;
 	public boolean addTail = false;
+	public boolean speedMin = false;
+	public boolean speedMax = false;
 
 
 	public KeyManager(){
@@ -44,6 +46,8 @@ public class KeyManager implements KeyListener {
 		right = keys[KeyEvent.VK_D];
 		
 		addTail = keys[KeyEvent.VK_N];
+		speedMin = keys[KeyEvent.VK_MINUS];
+		speedMax = keys[KeyEvent.VK_EQUALS];
 
 		pbutt = keys[KeyEvent.VK_ESCAPE];
 
