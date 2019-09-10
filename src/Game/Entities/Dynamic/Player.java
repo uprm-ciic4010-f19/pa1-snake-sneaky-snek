@@ -28,7 +28,7 @@ public class Player {
         xCoord = 0;
         yCoord = 0;
         moveCounter = 0;
-        speed = 0;
+        speed = 5;
         direction= "Right";
         justAte = false;
         lenght= 10;
@@ -37,7 +37,7 @@ public class Player {
 
     public void tick(){
         moveCounter++;
-        if(moveCounter>=5) {
+        if(moveCounter>=speed) {
             checkCollisionAndMove();
             moveCounter=0;  
             
@@ -45,14 +45,13 @@ public class Player {
         
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
         	if(speed!=0) {
-        		speed--;
-        	}
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
-
         		speed++;
         	}
-        	
         }
+        
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) { //testkey
+        		speed--;
+    	}
         
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) { ///////
         	  lenght++;
