@@ -11,6 +11,7 @@ import Resources.Images;
 
 import javax.sound.sampled.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -83,7 +84,7 @@ public class GameSetUp implements Runnable {
         pauseState = new PauseState(handler);
 
         State.setState(gameState);
-
+  
         try {
 
             audioFile = getClass().getResourceAsStream("/music/nature.wav");
@@ -105,6 +106,7 @@ public class GameSetUp implements Runnable {
 
     public void reStart(){
         gameState = new GameState(handler);
+        
     }
 
     public synchronized void start(){
