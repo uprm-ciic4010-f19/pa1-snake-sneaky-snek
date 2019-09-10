@@ -6,11 +6,16 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Game.GameStates.PauseState;
+import Game.GameStates.State;
+
 /**
  * Created by AlexVR on 7/2/2018.
  */
 public class Player {
-
+	public State pauseState;
+	   
+	   
     public int lenght;
     public boolean justAte;
     private Handler handler;
@@ -36,6 +41,9 @@ public class Player {
     }
 
     public void tick(){
+        pauseState = new PauseState(handler);
+        
+        
         moveCounter++;
         if(moveCounter>=speed) {
             checkCollisionAndMove();
@@ -82,7 +90,9 @@ public class Player {
               handler.getWorld().playerLocation[tail.x][tail.y] = true;
               
     	}
-        
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ESCAPE)){ 
+        	State.setState(pauseState);
+        }
      
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ 
             direction="Up";
