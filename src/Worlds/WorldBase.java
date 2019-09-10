@@ -60,10 +60,7 @@ public abstract class WorldBase {
             g.setColor(backround);
             g.drawLine(0, i, handler.getWidth() , i);
             g.drawLine(i,0,i,handler.getHeight());
-            g.setFont(new Font("Helvetica", 1, 20));
-            g.drawString("Score dummy", 10, 10);
-            
-            
+
         }
 
 
@@ -71,4 +68,3 @@ public abstract class WorldBase {
     }
 
 }
-
