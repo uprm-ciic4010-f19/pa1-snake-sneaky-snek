@@ -8,13 +8,14 @@ import java.util.Random;
 
 import Game.GameStates.PauseState;
 import Game.GameStates.State;
+import Game.GameStates.OverState;
 
 /**
  * Created by AlexVR on 7/2/2018.
  */
 public class Player {
 	public State pauseState;
-	   
+	public State overState;
 	   
     public int lenght;
     public boolean justAte;
@@ -42,8 +43,8 @@ public double currScore;
 
     public void tick(){
         pauseState = new PauseState(handler);
-        
-        
+        overState = new OverState(handler);
+     
         moveCounter++;
         if(moveCounter>=speed) {
             checkCollisionAndMove();
