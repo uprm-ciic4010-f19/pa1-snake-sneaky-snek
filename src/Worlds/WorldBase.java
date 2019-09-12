@@ -1,8 +1,10 @@
+
 package Worlds;
 
 import Game.Entities.Dynamic.Player;
 import Game.Entities.Dynamic.Tail;
 import Game.Entities.Static.Apple;
+import Game.GameStates.State;
 import Main.Handler;
 
 import java.awt.*;
@@ -24,12 +26,15 @@ public abstract class WorldBase {
     public int GridPixelsize;
 
     public Player player;
+    public int steps = 0;
 
     protected Handler handler;
 
 
     public Boolean appleOnBoard;
-    protected Apple apple;
+    private Apple apple;
+    public boolean isRotten = false;
+    
     public Boolean[][] appleLocation;
 
 
@@ -45,9 +50,19 @@ public abstract class WorldBase {
 
 
     }
+    public void isGood() {
+    	if(isRotten == false && handler.getWorld().steps%1000 == 0 ) {
+    		isRotten = true;
+    		
+    	}
+    }
     public void tick(){
-
-
+    	steps++;
+    	System.out.println(steps);
+    	isGood();
+    	
+    	
+    	
 
     }
 
@@ -66,10 +81,14 @@ public abstract class WorldBase {
             
             
         }
-
-
-
     }
+	public Apple getApple() {
+		return apple;
+	}
+	public void setApple(Apple apple) {
+		this.apple = apple;
+	}
+   
 
 }
 
