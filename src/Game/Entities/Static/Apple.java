@@ -1,5 +1,6 @@
 package Game.Entities.Static;
 
+import Game.GameStates.State;
 import Main.Handler;
 
 /**
@@ -8,7 +9,7 @@ import Main.Handler;
 public class Apple {
 
     private Handler handler;
-
+   
     public int xCoord;
     public int yCoord;
 
@@ -17,6 +18,6 @@ public class Apple {
         this.xCoord=x;
         this.yCoord=y;
     }
-
-
+    
+    
 }
