@@ -57,11 +57,11 @@ public double currScore;
         	}
         }
         
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) { //testkey
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) { 
         		speed--;
     	}
         
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) { ///////
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) { 
         	  lenght++;
               Tail tail= null;
               if( handler.getWorld().body.isEmpty()){
@@ -113,29 +113,28 @@ public double currScore;
         switch (direction){
             case "Left":
                 if(xCoord==0){
-                	kill();
-                	//    	handler.getWorld().playerLocation[handler.getWorld().GridWidthHeightPixelCount-1][y]=true;
+                	handler.getWorld().player.xCoord += 59;
                 }else{
                     xCoord--;
                 }
                 break;
             case "Right":
                 if(xCoord==handler.getWorld().GridWidthHeightPixelCount-1){
-                    kill();
+                    handler.getWorld().player.xCoord -= 59;
                 }else{
                     xCoord++;
                 }
                 break;
             case "Up":
                 if(yCoord==0){
-                    kill();
+                   handler.getWorld().player.yCoord += 59;
                 }else{
                     yCoord--;
                 }
                 break;
             case "Down":
                 if(yCoord==handler.getWorld().GridWidthHeightPixelCount-1){
-                    kill();
+                    handler.getWorld().player.yCoord -= 59;
                 }else{
                     yCoord++;
                 }
