@@ -159,7 +159,6 @@ public double currScore;
         		State.setState(overState);
         	}
         }
-        
     }
 
 	
@@ -328,29 +327,13 @@ public double currScore;
 			}
 
 		}
-		
+		handler.getWorld().body.addLast(tail);
+		handler.getWorld().playerLocation[tail.x][tail.y] = true;
 
-		if (handler.getWorld().appleLocation[xCoord][yCoord]==false && handler.getWorld().isRotten == false) {
+		if (handler.getWorld().appleLocation[xCoord][yCoord]==false) {
 			currScore += Math.sqrt((currScore*2)+1);
 			currScore = Math.round(currScore*1000.0)/1000.0;
-			speed -= 1; 
-			handler.getWorld().body.addLast(tail);
-			handler.getWorld().playerLocation[tail.x][tail.y] = true;
-		} 
-		
-		else if (handler.getWorld().isRotten == true) {
-			currScore -= Math.sqrt((currScore*2)+1);
-			currScore = Math.round(currScore*1000.0)/1000.0;
-			speed += 1;
-			if(handler.getWorld().body.size() >0) {
-				handler.getWorld().body.removeLast();
-				kill();
-			}
-			else {
-				State.setState(overState);
-			}
-			
-		} 
+		}
 	}
 
 	public void kill(){
