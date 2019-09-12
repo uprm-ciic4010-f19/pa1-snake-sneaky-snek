@@ -113,28 +113,28 @@ public double currScore;
         switch (direction){
             case "Left":
                 if(xCoord==0){
-                	handler.getWorld().player.xCoord += 59;
+                	handler.getWorld().player.xCoord = handler.getWorld().GridWidthHeightPixelCount-1;
                 }else{
                     xCoord--;
                 }
                 break;
             case "Right":
                 if(xCoord==handler.getWorld().GridWidthHeightPixelCount-1){
-                    handler.getWorld().player.xCoord -= 59;
+                    handler.getWorld().player.xCoord = 0;
                 }else{
                     xCoord++;
                 }
                 break;
             case "Up":
                 if(yCoord==0){
-                   handler.getWorld().player.yCoord += 59;
+                  handler.getWorld().player.yCoord = handler.getWorld().GridWidthHeightPixelCount-1;
                 }else{
                     yCoord--;
                 }
                 break;
             case "Down":
                 if(yCoord==handler.getWorld().GridWidthHeightPixelCount-1){
-                    handler.getWorld().player.yCoord -= 59;
+                    handler.getWorld().player.yCoord = 0;
                 }else{
                     yCoord++;
                 }
@@ -161,8 +161,15 @@ public double currScore;
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
                 g.setColor(Color.GREEN);
 
-                if(playeLocation[i][j]||handler.getWorld().appleLocation[i][j]){
+                if(playeLocation[i][j]){
                     g.fillRect((i*handler.getWorld().GridPixelsize),
+                            (j*handler.getWorld().GridPixelsize),
+                            handler.getWorld().GridPixelsize,
+                            handler.getWorld().GridPixelsize);
+                }
+                if(handler.getWorld().appleLocation[i][j]) {
+                	g.setColor(Color.RED);
+                	g.fillRect((i*handler.getWorld().GridPixelsize),
                             (j*handler.getWorld().GridPixelsize),
                             handler.getWorld().GridPixelsize,
                             handler.getWorld().GridPixelsize);
@@ -170,8 +177,6 @@ public double currScore;
 
             }
         }
-
-
     }
 
     public void Eat(){
