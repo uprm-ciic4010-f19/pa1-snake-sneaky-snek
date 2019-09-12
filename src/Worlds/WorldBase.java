@@ -62,7 +62,7 @@ public abstract class WorldBase {
             g.drawLine(i,0,i,handler.getHeight());
             g.setColor(Color.BLACK);
             g.setFont(new Font("Times New Roman", 1, 50));
-            g.drawString("Score dummy", 10, 40);
+            g.drawString("Score: " + player.currScore, 10, 40);
             
             
         }

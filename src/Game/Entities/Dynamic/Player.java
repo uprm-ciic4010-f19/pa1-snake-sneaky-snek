@@ -19,11 +19,11 @@ public class Player {
     public int lenght;
     public boolean justAte;
     private Handler handler;
-
+public double currScore;
     public int xCoord;
     public int yCoord;
 
-    public int moveCounter;
+    public double moveCounter;
     public int speed;
 
     public String direction;//is your first name one?
@@ -113,7 +113,8 @@ public class Player {
         switch (direction){
             case "Left":
                 if(xCoord==0){
-                    kill();
+                	kill();
+                	//    	handler.getWorld().playerLocation[handler.getWorld().GridWidthHeightPixelCount-1][y]=true;
                 }else{
                     xCoord--;
                 }
@@ -179,6 +180,7 @@ public class Player {
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
         handler.getWorld().appleOnBoard=false;
+        
         switch (direction){
             case "Left":
                 if( handler.getWorld().body.isEmpty()){
@@ -300,12 +302,15 @@ public class Player {
                     }
 
                 }
-               
-                
+ 
         }
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
         
+        if (handler.getWorld().appleLocation[xCoord][yCoord]==false) {
+        	currScore += Math.sqrt((currScore*2)+1);
+        	currScore = Math.round(currScore*1000.0)/1000.0;
+        }
     }
 
     public void kill(){
