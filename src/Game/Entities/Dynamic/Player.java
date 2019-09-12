@@ -154,6 +154,13 @@ public double currScore;
             handler.getWorld().body.addFirst(new Tail(x, y,handler));
         }
 
+        for (int i = 0; i< handler.getWorld().body.size();i++) {
+        	if(xCoord == handler.getWorld().body.get(i).x &&
+        			yCoord == handler.getWorld().body.get(i).y) {
+        		State.setState(overState);
+        	}
+        }
+        
     }
 
     public void render(Graphics g,Boolean[][] playeLocation){
