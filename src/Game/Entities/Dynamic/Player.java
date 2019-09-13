@@ -95,13 +95,13 @@ public class Player {
         	State.setState(pauseState);
         }
      
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ 
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_W) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP) && direction != "Down"){ 
             direction="Up";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && direction != "Up"){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_S) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN) && direction != "Up"){
             direction="Down";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && direction != "Right"){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_A) ||handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT) && direction != "Right"){
             direction="Left";
-        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)&& direction != "Left"){
+        }if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_D) ||handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)&& direction != "Left"){
             direction="Right";
         }
         
