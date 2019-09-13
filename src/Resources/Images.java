@@ -32,7 +32,7 @@ public class Images {
     
         try {
 
-            title = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
+            title = ImageIO.read(getClass().getResourceAsStream("/Buttons/SnakeMenu.png"));
             Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));
             SnakeGameOver = ImageIO.read(getClass().getResourceAsStream("/Buttons/SnakeGameOver.png"));
             GameOver = ImageIO.read(getClass().getResourceAsStream("/Buttons/GameOver.jpg"));
