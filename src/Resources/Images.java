@@ -15,29 +15,32 @@ public class Images {
     public static BufferedImage title;
     public static BufferedImage Pause;
     public static BufferedImage GameOver;
+    public static BufferedImage PauseWall;
     public static BufferedImage[] Resume;
-    public static BufferedImage[] BTitle;
-    public static BufferedImage[] Options;
+    public static BufferedImage[] BTitle;  
     public static ImageIcon icon;
+    public static BufferedImage black1;
+    public static BufferedImage PauseIt;
+  
 
     public Images() {
 
         butstart = new BufferedImage[3];
         Resume = new BufferedImage[2];
         BTitle = new BufferedImage[2];
-        Options = new BufferedImage[2];
-
+    
         try {
 
             title = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
             Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));
             GameOver = ImageIO.read(getClass().getResourceAsStream("/Buttons/GameOver.jpg"));
+            PauseIt = ImageIO.read(getClass().getResourceAsStream("/Buttons/PauseIt.jpg"));
+            black1 = ImageIO.read(getClass().getResourceAsStream("/Buttons/black1.jpg"));
+            PauseWall = ImageIO.read(getClass().getResourceAsStream("/Buttons/PauseWall.jpg"));
             Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Resume.png"));
             Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeP.png"));
             BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle.png"));
             BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP.png"));
-            Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Options.png"));
-            Options[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/OptionsP.png"));
             butstart[0]= ImageIO.read(getClass().getResourceAsStream("/Buttons/NormBut.png"));//normbut
             butstart[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/HoverBut.png"));//hoverbut
             butstart[2]= ImageIO.read(getClass().getResourceAsStream("/Buttons/ClickedBut.png"));//clickbut
