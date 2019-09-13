@@ -55,7 +55,7 @@ public class OverState extends State {
     
     @Override
     public void render(Graphics g) {
-        g.drawImage(Images.GameOver,0,0,800,800,null);
+        g.drawImage(Images.SnakeGameOver,0,0,800,800,null);
         uiManager.Render(g);
 
 

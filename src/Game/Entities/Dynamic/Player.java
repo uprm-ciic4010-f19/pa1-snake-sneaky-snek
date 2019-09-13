@@ -20,7 +20,7 @@ public class Player {
     public int lenght;
     public boolean justAte;
     private Handler handler;
-public double currScore;
+    public double currScore;
     public int xCoord;
     public int yCoord;
 
