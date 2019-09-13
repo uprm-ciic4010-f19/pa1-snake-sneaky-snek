@@ -56,6 +56,11 @@ public class OverState extends State {
     @Override
     public void render(Graphics g) {
         g.drawImage(Images.SnakeGameOver,0,0,800,800,null);
+
+            g.setColor(Color.RED);
+            g.setFont(new Font("Times New Roman", 1, 50));
+            g.drawString("Score: " + handler.getWorld().player.currScore, 450, 600);
+
         uiManager.Render(g);
 
 
